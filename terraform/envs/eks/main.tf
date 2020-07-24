@@ -33,7 +33,7 @@ module "bastion" {
   source = "../../modules/bastion"
   name = "${local.name}-bastion"
   ami = data.aws_ami.amazon_linux.id
-  instance_type = "t3.nano"
+  instance_type = "t3.small"
   key_name = aws_key_pair.default.key_name
   subnet_id = module.vpc.public_subnets[0]
   vpc_id = module.vpc.vpc_id
@@ -45,7 +45,7 @@ module "eks" {
   subnets = module.vpc.private_subnets
   vpc_id = module.vpc.vpc_id
   config_output_path = "./out/"
-  worker_instance_type = "t2.small"
+  worker_instance_type = "t3a.xlarge"
   asg_desired_capacity = 1
   asg_max_size = 4
   autoscaling_enabled = true

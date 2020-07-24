@@ -106,7 +106,7 @@ make push
 make update
 ```
 
-または
+またはa560c8bb354ce11ea8a081248c2ef574-942775138.us-east-1.elb.amazonaws.com
 
 ```
 kubectl apply -f k8s

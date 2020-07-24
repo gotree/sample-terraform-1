@@ -6,13 +6,27 @@
 # undo: １つ前のバージョンに戻す。もう一度実行すると最新バージョンに戻す。
 # desc: さまざまな情報を出力。
 
+# get argument(profile)
+ifdef profile
+	PROFILE=$(profile)
+else
+	PROFILE=dev-bikini-us-east-1
+endif
+# get argument(region)
+ifdef region
+	REGION=$(region)
+else
+	REGION=us-east-1
+endif
+
+
 IMAGE_NAME=app_web
 DEPLOYMENT=app1
 
 all:
 
 push:
-	./bin/push.sh
+	./bin/push.sh $(PROFILE) $(REGION)
 	
 update:
 	kubectl apply -f k8s

@@ -11,6 +11,9 @@ CWD=`dirname $0`
 ROOT=$(cd $CWD/..; pwd)
 cd $ROOT
 
+PROFILE=$1
+REGION=$2
+
 ENVFILE=$ROOT/.env
 
 if [ $ENVFILE ]; then
@@ -42,7 +45,7 @@ echo
 docker build -t $IMAGE_NAME .
 docker tag $IMAGE_NAME $TAG
 
-$(aws ecr get-login --no-include-email)
+$(aws ecr get-login --region $REGION  --profile $PROFILE --no-include-email)
 
 docker push $TAG
 

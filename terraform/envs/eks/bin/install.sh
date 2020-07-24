@@ -16,6 +16,6 @@ if [ "$x" = "n" ]; then
 fi
 
 cp out/env.sh ../../../app/.env
-cp out/kubeconfig_dev-test6 ~/.kube/config
+#cp out/kubeconfig_dev-test6 ~/.kube/config
 
 echo "Done."
